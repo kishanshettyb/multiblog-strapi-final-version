@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogposts",
+  "info": {
+    "singularName": "blogpost",
+    "pluralName": "blogposts",
+    "displayName": "blogpost"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "blog_post_title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "blog_post_description": {
+      "type": "text",
+      "required": true
+    },
+    "blog_post_content": {
+      "type": "blocks",
+      "required": true
+    },
+    "blog_post_image_url": {
+      "type": "text",
+      "required": true,
+      "unique": false
+    },
+    "domains": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::domain.domain",
+      "mappedBy": "blogpost"
+    },
+    "blog_post_status": {
+      "type": "enumeration",
+      "required": true,
+      "default": "save",
+      "enum": [
+        "save",
+        "draft",
+        "publish"
+      ]
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "domains",
+  "info": {
+    "singularName": "domain",
+    "pluralName": "domains",
+    "displayName": "domain"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "domain_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "domain_url": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "domain_status": {
+      "type": "enumeration",
+      "default": "active",
+      "enum": [
+        "active",
+        "inactive"
+      ]
+    },
+    "logo_image_url": {
+      "type": "text",
+      "required": true,
+      "unique": true
+    },
+    "logo_image": {
+      "type": "text",
+      "required": true,
+      "unique": true
+    },
+    "blogpost": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::blogpost.blogpost",
+      "inversedBy": "domains"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "domains"
+    }
+  }
+}
