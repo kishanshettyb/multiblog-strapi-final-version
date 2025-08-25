@@ -395,6 +395,7 @@ export interface ApiBlogpostBlogpost extends Struct.CollectionTypeSchema {
     blog_post_title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -423,7 +424,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    category_image: Schema.Attribute.Media<
+    category_image_url: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
     category_name: Schema.Attribute.String & Schema.Attribute.Required;
@@ -471,15 +472,15 @@ export interface ApiDomainDomain extends Struct.CollectionTypeSchema {
     domain_url: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    icon_image_url: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::domain.domain'
     > &
       Schema.Attribute.Private;
-    logo_image: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
     logo_image_url: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;

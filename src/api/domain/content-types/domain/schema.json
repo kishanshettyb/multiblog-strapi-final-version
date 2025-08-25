@@ -34,7 +34,7 @@
       "required": true,
       "unique": true
     },
-    "logo_image": {
+    "icon_image_url": {
       "type": "text",
       "required": true,
       "unique": true

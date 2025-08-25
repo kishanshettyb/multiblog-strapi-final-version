@@ -20,7 +20,7 @@
       "required": true,
       "unique": true
     },
-    "category_image": {
+    "category_image_url": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
