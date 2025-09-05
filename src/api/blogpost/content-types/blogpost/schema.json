@@ -31,9 +31,9 @@
     },
     "domains": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::domain.domain",
-      "mappedBy": "blogpost"
+      "mappedBy": "blogposts"
     },
     "blog_post_status": {
       "type": "enumeration",

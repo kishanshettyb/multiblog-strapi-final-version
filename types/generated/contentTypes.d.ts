@@ -399,7 +399,7 @@ export interface ApiBlogpostBlogpost extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    domains: Schema.Attribute.Relation<'oneToMany', 'api::domain.domain'>;
+    domains: Schema.Attribute.Relation<'manyToMany', 'api::domain.domain'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -459,7 +459,10 @@ export interface ApiDomainDomain extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    blogpost: Schema.Attribute.Relation<'manyToOne', 'api::blogpost.blogpost'>;
+    blogposts: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::blogpost.blogpost'
+    >;
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

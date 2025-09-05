@@ -39,9 +39,9 @@
       "required": true,
       "unique": true
     },
-    "blogpost": {
+    "blogposts": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::blogpost.blogpost",
       "inversedBy": "domains"
     },
