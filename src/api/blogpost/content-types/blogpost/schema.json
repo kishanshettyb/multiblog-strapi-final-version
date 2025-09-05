@@ -50,6 +50,24 @@
       "relation": "oneToMany",
       "target": "api::category.category",
       "mappedBy": "blogpost"
+    },
+    "likes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::like.like",
+      "inversedBy": "blogposts"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "blogpost"
+    },
+    "bookmarks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::bookmark.bookmark",
+      "mappedBy": "blogposts"
     }
   }
 }

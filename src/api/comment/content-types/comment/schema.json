@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comments",
+  "info": {
+    "singularName": "comment",
+    "pluralName": "comments",
+    "displayName": "comment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "comments": {
+      "type": "text",
+      "required": true
+    },
+    "blogpost": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::blogpost.blogpost",
+      "inversedBy": "comments"
+    },
+    "comments_status": {
+      "type": "enumeration",
+      "required": true,
+      "default": "inactive",
+      "enum": [
+        "active",
+        "inactive"
+      ]
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

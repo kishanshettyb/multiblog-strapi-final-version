@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shares",
+  "info": {
+    "singularName": "share",
+    "pluralName": "shares",
+    "displayName": "share"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

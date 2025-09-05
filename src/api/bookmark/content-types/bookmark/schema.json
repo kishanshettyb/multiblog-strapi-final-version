@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookmarks",
+  "info": {
+    "singularName": "bookmark",
+    "pluralName": "bookmarks",
+    "displayName": "bookmark"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bookmark_status": {
+      "type": "enumeration",
+      "enum": [
+        "saved",
+        "unsaved"
+      ]
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "blogposts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::blogpost.blogpost",
+      "inversedBy": "bookmarks"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "likes",
+  "info": {
+    "singularName": "like",
+    "pluralName": "likes",
+    "displayName": "like"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "like_status": {
+      "type": "enumeration",
+      "enum": [
+        "like",
+        "dislike"
+      ]
+    },
+    "blogposts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::blogpost.blogpost",
+      "mappedBy": "likes"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}
